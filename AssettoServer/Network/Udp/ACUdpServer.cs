@@ -56,7 +56,8 @@ public class ACUdpServer : CriticalBackgroundService
 
         _socket.DisableUdpIcmpExceptions();       
         _socket.ReceiveTimeout = 1000;
-        _socket.Bind(new IPEndPoint(IPAddress.Any, _port));
+        var ipHostEntry = await Dns.GetHostEntryAsync("fly-global-services", stoppingToken);
+        _socket.Bind(new IPEndPoint(ipHostEntry.AddressList[0], _port));
         await Task.Factory.StartNew(() => ReceiveLoop(stoppingToken), TaskCreationOptions.LongRunning);
     }
 
