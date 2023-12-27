@@ -7,6 +7,8 @@ Race/Quali sessions and lap times are not supported yet. Only use this if you wa
 
 This is a fork of https://github.com/Niewiarowski/AssettoServer.
 
+Binds to custom UDP address.
+
 ## Documentation
 For more information on configuration, admin commands, etc. also check out our [website](https://assettoserver.org/).
 
